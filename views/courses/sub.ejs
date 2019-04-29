@@ -1,0 +1,48 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
+</h1>
+<h3> Under Guidance of <b> Mr. <%= course.hod %> </b></h3>
+<!-- <a href="/courses/sem/sub/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Subject</button> </a> -->
+
+<a href="/courses/sem/addSub/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Subject</button> </a>
+
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+  
+
+<% if(subject.length > 0) {%>
+
+<table class="table table-sm table-striped">
+        <thead class="table-active thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Subject Code</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Type</th>            
+</tr>
+</thead>
+<% sub.forEach(function(sub){ %>
+<tbody class="tbody-light">
+  <tr>
+    <th scope="row"><%= sub.name %></th>
+    <td ><%= sub.subCode %></td>
+    <td>Mr. <%= sub.teacher %></td>
+  <td><%= sub.form %></td>
+</tr>
+<%})%>
+</tbody>
+</table>
+
+<% } else { %>
+  <h1>No Subject Found!!</h1>
+<%}%>
+
+
+
+<% include ../partials/footer %>

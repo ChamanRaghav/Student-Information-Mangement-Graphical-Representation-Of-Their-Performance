@@ -1,0 +1,55 @@
+<% include ./partials/nav.ejs %>
+
+<h6>Add a New Student!!!</h6>
+<form id="contact-form" class="form-group" action="/users/add" method="POST">
+   <table>
+       <tbody>
+           <tr>
+               <td>
+
+                    <label for="rollno">Roll No:</label><br>
+               </td>
+               <td>
+                    <input type="text" name="students[rollno]" /><br>
+               </td>
+           </tr>
+           <tr><td>
+                <label for="name">Name:</label><br>
+           </td>
+        <td>
+                <input type="text" name="students[name]"/><br>
+        </td></tr>
+        <tr><td>
+                <label for="rgno">Registration No:</label><br>
+        </td><td>
+                <input type="text" name="students[rgno]"  /><br>
+        </td></tr>
+        <tr><td>
+                <label for="department">Which Department:</label><br>
+        </td><td>
+                <input type="text" name="students[dname]" /><br>
+        </td></tr>
+        <tr><td>
+                <label for="department">Which Semester:</label><br>
+        </td>
+    <td>
+            <input type="text" name="students[sname]" /><br>
+    </td></tr>
+    <tr>
+            <td>
+                
+    <label for="email">Your Email:</label><br>    
+            </td>
+            <td>
+          <input type="email" name="students[email]"><br>
+        </td>
+        <td>
+                <input type="submit" class="btn btn-sm btn-primary" role="button" /><br>
+        </td>
+        </tr>
+</tbody>
+   </table>    
+    
+  
+</form>
+

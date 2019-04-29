@@ -1,0 +1,37 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to <%= course.name %>  Department </h1>
+
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+
+<form action="/courses/sem/<%= course._id %>" method="POST">
+    
+   <table class="table table1">
+       <tr>
+            <div class="form-group">
+           <td> <label for="name">Semester:</label></td>
+           <td> <select name="semester" class="custom-select">
+               <option value="1">1st</option>
+               <option value="2">2nd</option>
+               <option value="3">3rd</option>
+               <option value="4">4th</option>
+               <option value="5">5th</option>
+               <option value="6">6th</option>
+               <option value="7">7th</option>
+               <option value="8">8th</option>
+             </select>
+             <br><br><br>
+             <button type="submit" class="btn btn-primary btn-lg">Save Details</button></td>
+        </div>
+    </tr>
+   </table>
+</form>
+
+<% include ../partials/footer %>

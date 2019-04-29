@@ -1,0 +1,64 @@
+me1    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dc7d8a855d5b644c0603
+me2    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dcf38a855d5b644c0605
+me3    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd138a855d5b644c0606
+me4    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd308a855d5b644c0607
+me5    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd4d8a855d5b644c0608
+me6    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd698a855d5b644c0609
+me7    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd858a855d5b644c060a
+me8    courses/sem/5cc5dbdd02c1d767fcb67f24/5cc5dd9a8a855d5b644c060b
+
+cse1---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de078a855d5b644c060d
+cse2---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de208a855d5b644c060f
+cse3---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de338a855d5b644c0610
+cse4---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de478a855d5b644c0611
+cse5---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de5c8a855d5b644c0612
+cse6---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de748a855d5b644c0613
+cse7---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de8b8a855d5b644c0614
+cse8---courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de9c8a855d5b644c0615
+
+ce1---courses/sem/5cc5df418a855d5b644c0616/5cc5df4c8a855d5b644c0617
+ce2---courses/sem/5cc5df418a855d5b644c0616/5cc5df628a855d5b644c0619
+ce3---courses/sem/5cc5df418a855d5b644c0616/5cc5df7b8a855d5b644c061a
+ce4---courses/sem/5cc5df418a855d5b644c0616/5cc5df928a855d5b644c061b
+ce5---courses/sem/5cc5df418a855d5b644c0616/5cc5dfa58a855d5b644c061c
+ce6---courses/sem/5cc5df418a855d5b644c0616/5cc5dfbb8a855d5b644c061d
+ce7---courses/sem/5cc5df418a855d5b644c0616/5cc5dfd08a855d5b644c061e
+ce8---courses/sem/5cc5df418a855d5b644c0616/5cc5dfe88a855d5b644c061f
+
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <a class="navbar-brand" href="/dashboard">Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/index">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/contact">Contact</a>
+      </li>
+      
+    </ul>
+    <ul class="find">
+        <li>
+          <form action="/users/student" method="POST" class="form-group">
+            <div class="form-control">
+              <input type="text" name="rgno" placeholder="Enter Registration No." id="" required /> 
+          <button type="submit" class="submit">Submit</button></a> 
+        </div>
+      </form>
+
+        </li>
+        <li>
+          <a href="/users/logout" class="btn btn-secondary">Logout</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Welcome <%= user.name %></a>
+        </li>
+    </ul>
+
+  </div>
+</nav>
+<br>

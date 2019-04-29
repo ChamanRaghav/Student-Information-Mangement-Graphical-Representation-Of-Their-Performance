@@ -1,0 +1,48 @@
+
+
+    <% include ./partials/nav.ejs %>
+<div class="container ">
+<table class="table table-bordered table-striped ">
+<thead class="table-active">
+  <tr>
+    <th scope="col">Roll No.</th>
+    <th scope="col">Name</th>
+    <th scope="col">Registration No.</th>
+    <th scope="col">Department Name</th>
+    <th scope="col">Semester</th>
+    <th scope="col">Email</th>
+
+  </tr>
+</thead>
+<% student.forEach(function(student){ %>
+<tbody>
+  <tr>
+    <th scope="row"><%= student.rollno %></th>
+    <td ><%= student.name %></td>
+    <td><%= student.rgno %></td>
+    <td><%= student.dname %></td>
+    <td><%= student.sname %></td>
+    <td> <%= student.email%></td>
+    <td>  <a href="/users/students/<%=student._id %>" class="btn submit">View </a ></td>
+  </td>
+    <!-- <td>
+    <ul id="action">
+
+    <li>
+    <a href="/addMarks/<%=student._id %>" class="btn btn-success">Add Marks</a >
+    </li>
+    <li>
+    <a href="/index/<%=student._id %>" class="btn btn-primary">Edit</a >
+    </li>
+    <li>
+    <form id="delete" action="/index/<%= student._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete</button></form>
+    </li>
+    </ul>
+
+    </td> -->
+  </tr>
+  <%})%>
+</tbody>
+</table>
+</div>

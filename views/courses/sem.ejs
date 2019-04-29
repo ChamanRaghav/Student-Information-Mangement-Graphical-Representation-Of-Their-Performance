@@ -1,0 +1,64 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
+ </h1>
+<h3> Under Guidance of <b> Mr. <%= course.hod %> </b></h3>
+<!-- 
+<a href="/courses/sem/addSub/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Subject</button> </a> -->
+
+
+<a href="/users/add">
+    <button class="btn btn-primary" type="button" href="/users/add">Add Student </button></a>
+    
+    <a href="/courses/sem/subList/<%= course._id %>/<%= sem._id %>" class="btn btn-primary">Go to Subject List</a>
+
+
+    <button onclick="goBack()" class="btn btn-primary">Go Back</button>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+      </script>
+
+<button onclick="goForward()" class="btn btn-primary">Go Forward</button>
+
+<script>
+function goForward() {
+  window.history.forward();
+}
+</script>
+
+<% if(students.length > 0) {%>
+
+<table class="table table-sm table-striped">
+    <thead class="table-active thead-dark">
+      <tr>
+        <th scope="col">Roll No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Registration No.</th>
+        <th scope="col">Department Name</th>
+        <th scope="col">Semester</th>
+        <!-- <th scope="col">Email</th> -->
+        
+</tr>
+</thead>
+<% students.forEach(function(students){ %>
+<tbody class="tbody-light">
+<tr>
+<th scope="row"><%= students.rollno %></th>
+<td ><%= students.name %></td>
+<td><%= students.rgno %></td>
+<td><%= students.dname %></td>
+<td><%= students.sname %></td>
+<!-- <td> <%= students.email%></td> -->
+</tr>
+<%})%>
+</tbody>
+</table>
+<% } else { %>
+    <h1>No Student Found!!</h1>
+<%}%>
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,46 @@
+
+      <% include ./partials/nav.ejs %>
+  <h1>Contact Us!!</h1>
+  <p>Reach at Campus.</p>
+  <form id="contact-form" action="/users/contact" method="POST">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+            <label for="who">Who do you want to contact? </label>
+          </td>
+          <td>
+            <input type="text" class="form-control"  name="who" value="<%=  qs.name %>"/><br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="department">Which Department:</label>
+          </td>
+          <td>
+            <input type="text"  class="form-control" name="department" value="<%=  qs.dept %>"/><br>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <label for="email">Your Email:</label>  
+              </td>
+            <td>
+                <input type="email" class="form-control" name="email" value=""/><br>
+            </td>
+          </tr>
+          <tr>
+              <td>
+             
+      <label for="comment">Comment:</label>
+              <td>
+            <textarea class="form-control" rows="5" id="comment"></textarea>  <br>  
+            <button type="submit" class="btn btn-primary btn-large">Submit</button>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+  </form>
+  </body>
+</html>

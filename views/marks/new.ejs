@@ -1,0 +1,86 @@
+<% include ../partials/nav %>
+
+<div class="jumbotron">
+
+<form action="/users/index/<%= student._id%>/marks" method="POST">
+<h1>Add result of  <%= student.name%></h1>
+<table class="table table1">
+    <tbody>
+       <tr><div class="form-group">
+            <td> <label for="name">Semester:</label></td>
+            <td><select name="mark[sem]" class="custom-select">
+                        <option value="1">1st</option>
+                        <option value="2">2nd</option>
+                        <option value="3">3rd</option>
+                        <option value="4">4th</option>
+                        <option value="5">5th</option>
+                        <option value="6">6th</option>
+                        <option value="7">7th</option>
+                        <option value="8">8th</option>
+                      </select></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td><label for="name">Sessional:</label></td>
+                <td><select name="mark[ses]" class="custom-select">
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                                <option value="3">3rd</option>
+                              </select></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+    </tbody>
+</table>
+
+<div class="form-group">
+        <label for"roll_nos">FCPC</label>
+        <input type="text"  id="roll_no" class="form-control " name="mark[fcpc]" placeholder="?" >
+</div>
+
+<div class="form-group">
+<label for"roll_nos">BE</label>
+<input type="text"  id="roll_no" class="form-control " name="mark[be]" placeholder="?" >
+</div>
+
+<div class="form-group">
+<label for"roll_nos">BME</label>
+<input type="text"  id="roll_no" class="form-control " name="mark[bme]" placeholder="?" >
+</div>
+
+<div class="form-group">
+<label for"name">Maths</label>
+<input type="text"  id="name" class="form-control " name="mark[maths]" placeholder="?" >
+</div>
+
+<div class="form-group">
+<label for"branch">English</label>
+<input type="text"  id="branch" class="form-control " name="mark[english]" placeholder="?" >
+</div>
+
+<div class="form-group">
+<label for"dmc">Physics</label>
+<input type="text"  id="dmc" class="form-control " name="mark[physics]" placeholder="?" >
+</div>
+<button type="submit" class="btn submit">Submit</button>
+</form>
+</div>
+    </body>
+</html>

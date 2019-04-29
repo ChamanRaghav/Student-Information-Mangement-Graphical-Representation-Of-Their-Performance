@@ -1,0 +1,35 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to <%= student.dname %>  Department <%= student.name %> </h1>
+
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+
+
+<form action="/users/addCourse/<%= student._id %>" method="POST">
+    
+   <table class="table table1">
+       <tr>
+            <div class="form-group">
+           <td> <label for="name">Name:</label></td>
+           <td> <input type="text" class="form-control"  name="name" placeholder="Department Name"></td>
+        </div>
+       </tr>
+       <tr>
+        <div class="form-group">
+           <td> <label for="hod">Head Of Department</label></td>
+           <td>   <input type="text" class="form-control"  name="hod" placeholder="HOD Name">
+            <br><br>
+           <button type="submit" class="btn btn-primary btn-lg">Save Details</button></td>
+        </div>
+       </tr>
+   </table>
+</form>
+
+<% include ../partials/footer %>

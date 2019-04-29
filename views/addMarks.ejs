@@ -1,0 +1,76 @@
+
+
+    <% include ./partials/nav.ejs %>
+      <table>
+          <form action="/users/addMarks" method="POST">
+            <h1>Add Marks of  <%= student.name %></h1>
+        <tbody>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label >FCPC</label>
+            </td>
+            <td>
+                <input type="text" class="form-control " name="fcpc" placeholder="FCPC Marks" >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+              <label>Basics of Electronics</label>
+
+            </td>
+            <td>
+                <input type="text"  class="form-control " name="be" placeholder="BE Marks" >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label>Basics of Mechanical Engineering</label>
+            </td>
+            <td>
+                <input type="text"  id="rollno" class="form-control " name="bme" placeholder="BME Marks" >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label>Mathematics</label>
+            </td>
+            <td>
+                <input type="text" class="form-control " name="maths" placeholder="Mathematics Marks" >
+              </div>        
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label >English</label>
+            </td>
+            <td>
+                <input type="text" class="form-control " name="english" placeholder="English Marks" >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                  <label >Physics</label>
+          </td>
+          <td>
+                  <input type="text"  class="form-control " name="physics" placeholder="Physics Marks" >
+                </div> 
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </td>
+          <br><br>
+       
+        </tr>
+        </tbody>
+      </table>
+
+  </body>
+</html>

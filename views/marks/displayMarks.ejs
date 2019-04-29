@@ -1,0 +1,44 @@
+<% include ../partials/nav %>
+
+<a href="/users/course/<%= student._id %>"> <button class="btn btn-primary">Go To Course</button> </a>
+<a href="/users/addCourse/<%= student._id %>"> <button class="btn btn-primary">Add Course</button> </a>
+
+
+<h1>Performance Of <%= student.name %></h1>
+
+
+
+<table class="table table-bordered " id="performance">
+        <thead class="table-active">
+          <tr>
+            <th scope="col">Semester</th>
+            <th scope="col">Sessional</th>
+            <th scope="col">FCPC</th>
+            <th scope="col">BE</th>
+            <th scope="col">BME</th>
+            <th scope="col">Maths</th>
+            <th scope="col">English</th>
+            <th scope="col">Physics</th>
+            
+        
+          </tr>
+          </thead>
+          <% student.marks.forEach(function(mark){ %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= mark.sem %></th>
+            <td><%=mark.ses %></td>
+            <td><%= mark.fcpc %></td>
+            <td><%= mark.be %></td>
+            <td><%= mark.bme %></td>
+            <td><%= mark.maths %></td>
+            <td><%= mark.english %></td>
+            <td><%= mark.physics %></td>
+            <td>
+               <a href="/users/perform/<%= student._id %>/<%= mark._id %>"> <button class="btn btn-primary">See On Graph</button> </a>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+        </table>
+        <a  class="btn btn-primary btn-lg btn-block"  href="/users/index/<%= student._id%>/marks/new">Add Result</a>
