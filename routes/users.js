@@ -7,6 +7,8 @@ const User = require('../models/User');
 var Mark = require('../models/mark');
 var Student = require('../models/student.js');
 var Course = require('../models/course');
+var Subject = require('../models/subject');
+var Sem = require('../models/sem');
 
 const { forwardAuthenticated } = require('../config/auth');
 
@@ -128,6 +130,10 @@ router.get("/index", function(req, res){
         res.render('add', { user: req.user });
       }
       else{
+        req.flash(
+          'success_msg',
+          'Successfully added A new Student'
+          );
          res.redirect('/users/index');
       }
     });
@@ -136,12 +142,16 @@ router.get("/index", function(req, res){
 
   // Delete The Student(Final_Ok)
   router.delete("/index/:id", function(req,res){
-    Student.findByIdAndRemove(req.params.id, function(err){
+    Student.findByIdAndRemove(req.params.id, function(err, student){
         if(err){
           console.log("Error in Deleting The selected Student");
           res.redirect('/users/index');
           }
           else{
+            req.flash(
+              'error_msg',
+              `${student.name} is successfully Deleted`
+            );
             res.redirect('/users/index');
           }
     });
@@ -254,38 +264,58 @@ router.put('/index/:id', function(req, res){
     if (err){
       console.log("Error Occures in Updating the Student Details!!");
     } else{
+      req.flash(
+      'success_msg',
+      `${students.name} is Successfully Updated.`
+      );
       res.redirect('/users/index');
     }
   });
 });
 
 //student Performance Page
-router.get("/students/:id", function(req, res){
-  Student.findById(req.params.id).populate("marks").exec(function(err, foundStudent){
+router.get("/students/:idC/:idSem/:idStudent", function(req, res){
+  Student.findById(req.params.idStudent).exec(function(err, foundStudent){
   if(err){
       res.redirect("/users/index");
       console.log(err);
   }
   else {
-      console.log(foundStudent);
-      res.render("marks/displayMarks", {student: foundStudent, user : req. user});
-  }
-  });
+    Sem.findById(req.params.idSem).populate("subjects").exec((err, foundSem)=>{
+      if(err){
+        res.redirect("/users/index");
+        console.log(err);
+    }
+    else {
+        console.log(foundStudent);
+        res.render("marks/displayMarks", { sem1: foundSem, student: foundStudent, user : req. user});
+    }
+     });
+    }
+    });
 });
 
 //add result page
-router.get("/index/:id/marks/new", function(req, res){
+router.get("/index/:id/:idSem/marks/new", function(req, res){
   Student.findById(req.params.id, function(err, student){
       if(err){
           console.log(err);
       }
       else{
-          res.render("marks/new",{student: student, user : req.user});
+        Sem.findById(req.params.idSem).populate("subjects").exec((err, foundSem)=>{
+          if(err){
+            res.redirect("/users/index");
+            console.log(err);
+        }
+        else {
+          res.render("marks/new",{sem1: foundSem,  student: student, user : req.user});
+      }
+    });
       }
   });
 });
 
-router.post("/index/:id/marks", function(req, res){
+router.post("/index/:id/:idSem/marks", function(req, res){
   Student.findById(req.params.id, function(err, student){
       if(err){
           console.log(err);
@@ -298,7 +328,9 @@ router.post("/index/:id/marks", function(req, res){
               } else{
                   student.marks.push(mark);
                   student.save();
-                  res.redirect('/users/students/' + student._id)
+          res.redirect("/student");
+
+                  // res.redirect('/users/students/' + student._id)
               }
           }
          

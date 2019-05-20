@@ -1,0 +1,41 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
+ </h1>
+<h3> Under Guidance of <b> Mr. <%= course.hod %> </b></h3>
+
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+
+<form action="/courses/sem/addResultForm" method="POST">
+  <table class="table table1">
+    <tbody>
+      <tr>
+        <td>Student</td>
+        <% sub.forEach(function(sub){ %>
+ <td><%= sub.name %></td>
+ <%})%>
+</tr>
+<% students.forEach(function(students){ %>
+<tr>
+    <div class="form-group">
+        <td><%= students.name %></td>
+        <% sub.forEach(function(sub){ %>
+        <td> <input type="text" class="form-control"  name="mark[<%= students.name %>]" placeholder="Marks"></td>
+        <%})%>
+      </div>
+</tr>
+<%})%>
+</tbody>
+</table>
+</form>
+
+
+
+<% include ../partials/footer %>

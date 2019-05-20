@@ -11,6 +11,7 @@ const app = express();
 app.use(methodOverride("_method"));
 
 
+
 // Passport Config
 require('./config/passport')(passport);
 
@@ -26,7 +27,7 @@ mongoose
 
 // EJS
 app.use(expressLayouts);
-app.use(express.static(path.join(__dirname, '/style')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // Express body parser
@@ -60,7 +61,7 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/courses', require('./routes/courses.js'));
-
+app.use('/student',require('./routes/students'));
 
 const PORT = process.env.PORT || 5000;
 

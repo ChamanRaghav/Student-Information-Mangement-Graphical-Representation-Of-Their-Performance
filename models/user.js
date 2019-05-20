@@ -12,18 +12,7 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  },
-  marks: [
-    {
-       type: mongoose.Schema.Types.ObjectId,
-       ref: "Mark"
-    }
- ]
-
+  }
 });
 
 const User = mongoose.model('User', UserSchema);

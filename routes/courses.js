@@ -173,4 +173,80 @@ res.render('./courses/sub', {course : courses,sem :sems, sub: subs ,subject:sems
 });
 
 
+router.get('/sem/addResult/:idC/:idS', (req, res)=> {
+    Course.findOne({ _id : req.params.idC }, 
+        function(err, courses){
+       if(err){
+           console.log(err);
+           res.redirect("/users/index");
+       }
+       else{
+        Semester.findOne({ _id : req.params.idS }, 
+            function(err, sems){
+           if(err){
+               console.log(err);
+               res.redirect("/users/index");
+           }
+           else{
+           Subject.find({}, 
+            function(err, subs){
+           if(err){
+               console.log(err);
+               res.redirect("/users/index");
+           }
+           else{
+res.render('./courses/addResult', {course : courses,sem :sems, sub: subs ,subject:sems.subjects, user: req.user});
+
+               }
+           });
+         }
+       });
+    }
+   });
+});
+
+// router.get('/sem/addResultForm/:idC/:idS', (req, res)=> {
+//     Course.findOne({ _id : req.params.idC }, 
+//         function(err, courses){
+//        if(err){
+//            console.log(err);
+//            res.redirect("/users/index");
+//        }
+//        else{
+//         Semester.findOne({ _id : req.params.idS }, 
+//             function(err, sems){
+//            if(err){
+//                console.log(err);
+//                res.redirect("/users/index");
+//            }
+//            else{
+//                 Student.find({
+//             dname: courses.name,
+//             sname: sems.semester 
+//         }, (err, students)=>{
+//             if(err){
+//                 console.log(err);
+//                 res.redirect("/users/index");
+//             }
+//             else{
+
+//                 Subject.find({}, 
+//                     function(err, subs){
+//                    if(err){
+//                        console.log(err);
+//                        res.redirect("/users/index");
+//                    }
+//                    else{
+//         res.render('./courses/addResultForm', {course : courses, students: students, sem :sems, sub: subs ,subject:sems.subjects, user: req.user});
+//             }
+//         });
+//                }
+//            });
+//          }
+//        });
+//     }
+//    });
+// });
+
+
 module.exports = router;

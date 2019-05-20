@@ -27,10 +27,12 @@ function goForward() {
   window.history.forward();
 }
 </script>
+<% var count = 0 %>
+
+<a href="/courses/sem/addResult/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Result</button> </a>
 
 <% if(students.length > 0) {%>
-
-<table class="table table-sm table-striped">
+  <table class="table table-sm table-striped">
     <thead class="table-active thead-dark">
       <tr>
         <th scope="col">Roll No.</th>
@@ -39,24 +41,43 @@ function goForward() {
         <th scope="col">Department Name</th>
         <th scope="col">Semester</th>
         <!-- <th scope="col">Email</th> -->
+        <th scope="col">Action</th>
         
-</tr>
-</thead>
-<% students.forEach(function(students){ %>
+      </tr>
+    </thead>
+    <% students.forEach(function(students){ %>
+      <% count++ %>
 <tbody class="tbody-light">
 <tr>
-<th scope="row"><%= students.rollno %></th>
-<td ><%= students.name %></td>
-<td><%= students.rgno %></td>
-<td><%= students.dname %></td>
-<td><%= students.sname %></td>
-<!-- <td> <%= students.email%></td> -->
-</tr>
-<%})%>
+  <th scope="row"><%= students.rollno %></th>
+  <td ><%= students.name %></td>
+  <td><%= students.rgno %></td>
+  <td><%= students.dname %></td>
+  <td><%= students.sname %></td>
+  <!-- <td> <%= students.email%></td> -->
+  
+  <td>
+    <ul class="action">
+      <li>
+        <a href="/users/students/<%= course._id %>/<%= sem._id %>/<%=students._id %>" class="btn btn-outline-info"><i class="material-icons">
+            add
+            </i>Result </a >
+        </li>
+        <li>
+        <a href="/users/index/<%=students._id %>" class="btn btn-outline-info"><i class="material-icons">
+            create
+            </i>Edit</a>
+        </li>
+      </ul>
+      
+    </td>
+  </tr>
+  <%})%>
 </tbody>
 </table>
+<button class="btn btn-info btn-block">Total Student = <%= count %></button>
 <% } else { %>
-    <h1>No Student Found!!</h1>
+  <h1>No Student Found!!</h1>
 <%}%>
 
 

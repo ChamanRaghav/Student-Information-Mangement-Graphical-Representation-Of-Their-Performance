@@ -1,0 +1,32 @@
+ <% student.marks.forEach(function(mark){ %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= mark.sem %></th>
+            <td><%=mark.ses %></td>
+            <td><%= mark.fcpc %></td>
+            <td><%= mark.be %></td>
+            <td><%= mark.bme %></td>
+            <td><%= mark.maths %></td>
+            <td><%= mark.english %></td>
+            <td><%= mark.physics %></td>
+            <td>
+               <a href="/users/perform/<%= student._id %>/<%= mark._id %>"> <button class="btn btn-primary">See On Graph</button> </a>
+            </td>
+          </tr>
+          <%})%>
+
+           <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>
+        </tr></div>
+        <tr><div class="form-group">
+                <td></td>
+                <td></td>

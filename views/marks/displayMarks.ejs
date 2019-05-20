@@ -6,6 +6,14 @@
 
 <h1>Performance Of <%= student.name %></h1>
 
+<button onclick="goBack()" class="btn btn-outline-warning"><i class="material-icons">
+    undo
+  </i> Go Back</button>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
 
 
 <table class="table table-bordered " id="performance">
@@ -13,32 +21,18 @@
           <tr>
             <th scope="col">Semester</th>
             <th scope="col">Sessional</th>
-            <th scope="col">FCPC</th>
-            <th scope="col">BE</th>
-            <th scope="col">BME</th>
-            <th scope="col">Maths</th>
-            <th scope="col">English</th>
-            <th scope="col">Physics</th>
-            
-        
+            <!-- <th scope="col"><%= sem1.semester %></th>
+            <th scope="col"><%= student.sname %></th> -->
+
+            <% sem1.subjects.forEach(function(sub){ %>
+            <th scope="col"><%= sub.name %></th>
+            <%})%>
           </tr>
           </thead>
-          <% student.marks.forEach(function(mark){ %>
-        <tbody>
-          <tr>
-            <th scope="row"><%= mark.sem %></th>
-            <td><%=mark.ses %></td>
-            <td><%= mark.fcpc %></td>
-            <td><%= mark.be %></td>
-            <td><%= mark.bme %></td>
-            <td><%= mark.maths %></td>
-            <td><%= mark.english %></td>
-            <td><%= mark.physics %></td>
-            <td>
-               <a href="/users/perform/<%= student._id %>/<%= mark._id %>"> <button class="btn btn-primary">See On Graph</button> </a>
-            </td>
-          </tr>
-          <%})%>
-        </tbody>
+          <tbody>
+            <tr>
+              <td>NO Results Added Till Now</td>
+            </tr>
+          </tbody>
         </table>
-        <a  class="btn btn-primary btn-lg btn-block"  href="/users/index/<%= student._id%>/marks/new">Add Result</a>
+        <a  class="btn btn-primary btn-lg btn-block"  href="/users/index/<%= student._id%>/<%= sem1._id %>/marks/new">Add Result</a>

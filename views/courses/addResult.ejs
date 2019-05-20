@@ -1,0 +1,55 @@
+<% include ../partials/nav %>
+
+<h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
+ </h1>
+<h3> Under Guidance of <b> Mr. <%= course.hod %> </b></h3>
+
+
+<button onclick="goBack()" class="btn btn-outline-warning"><i class="material-icons">
+  undo
+</i> Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+<a href="/courses/sem/addSub/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary"><i class="material-icons">
+    add
+    </i>Add Subject</button> </a>
+
+
+<% if(subject.length > 0) {%>
+<form action="/courses/sem/addResultForm/<%= course._id %>/<%= sem._id %>" method="get">
+  <table class="table table1">
+    <tbody>
+      <tr>
+          <div class="form-group"></div>
+          <td>  <label for="name">Subject:</label> </td>
+          <td> <select name="name" class="custom-select">
+            <% sub.forEach(function(sub){ %>
+              <option value="<%= sub.name %>"><%= sub.name %></option>
+              <%})%>
+            </select>
+          </td><td>
+            <button type="submit" class="btn btn-outline-primary">Go To Result Form</button>
+          </td>
+          
+          
+        </div>
+      </tr>
+    </tbody>
+</table>
+</form>
+
+
+<% } else { %>
+  <h1>No Subject Found!! Please Add Subjects For This Particular Semester of <%= course.name %> </h1>
+  
+  <%}%>
+  
+  
+  
+  
+  
+
+<% include ../partials/footer %>

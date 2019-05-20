@@ -1,14 +1,30 @@
 <% include ../partials/nav %>
 
-<div class="jumbotron">
 
-<form action="/users/index/<%= student._id%>/marks" method="POST">
-<h1>Add result of  <%= student.name%></h1>
+<button onclick="goBack()" class="btn btn-outline-warning"><i class="material-icons">
+   undo
+    </i> Go Back</button>
+   
+
+<script>
+        function goBack() {
+          window.history.back();
+        }
+$(function() {
+    var temp="<%= student.sname%>"; 
+    $("#MySem").val(temp);
+
+});
+</script>
+<form action="/users/index/<%= student._id%>/<%= sem1._id %>/marks" method="POST">
+<h1>Add result of <b> <%= student.name%> </b></h1>
 <table class="table table1">
     <tbody>
+
        <tr><div class="form-group">
             <td> <label for="name">Semester:</label></td>
-            <td><select name="mark[sem]" class="custom-select">
+            <td><select name="mark[sem]" id="MySem" class="custom-select">
+                        <option value="" selected disabled hidden>Choose here</option>
                         <option value="1">1st</option>
                         <option value="2">2nd</option>
                         <option value="3">3rd</option>
@@ -22,65 +38,29 @@
         <tr><div class="form-group">
                 <td><label for="name">Sessional:</label></td>
                 <td><select name="mark[ses]" class="custom-select">
+                                <option value="" selected disabled hidden>Choose here</option>
                                 <option value="1">1st</option>
                                 <option value="2">2nd</option>
                                 <option value="3">3rd</option>
                               </select></td>
         </tr></div>
+        <% sem1.subjects.forEach(function(sub){ %>
         <tr><div class="form-group">
-                <td></td>
-                <td></td>
+                <td><label for="sub1"><%= sub.name %></label></td>
+                <td> <input type="text" class="form-control " name="<%= sub.name %>" placeholder="<%= sub.name %> Marks" ></td>
         </tr></div>
-        <tr><div class="form-group">
+        <%})%>
+        <tr>
                 <td></td>
-                <td></td>
-        </tr></div>
-        <tr><div class="form-group">
-                <td></td>
-                <td></td>
-        </tr></div>
-        <tr><div class="form-group">
-                <td></td>
-                <td></td>
-        </tr></div>
-        <tr><div class="form-group">
-                <td></td>
-                <td></td>
-        </tr></div>
+                <td>
+                        <button type="submit" class="btn btn-outline-primary"><i class="material-icons">
+                        done
+                </i>Save</button>
+                </td>
+        </tr>
     </tbody>
 </table>
 
-<div class="form-group">
-        <label for"roll_nos">FCPC</label>
-        <input type="text"  id="roll_no" class="form-control " name="mark[fcpc]" placeholder="?" >
-</div>
-
-<div class="form-group">
-<label for"roll_nos">BE</label>
-<input type="text"  id="roll_no" class="form-control " name="mark[be]" placeholder="?" >
-</div>
-
-<div class="form-group">
-<label for"roll_nos">BME</label>
-<input type="text"  id="roll_no" class="form-control " name="mark[bme]" placeholder="?" >
-</div>
-
-<div class="form-group">
-<label for"name">Maths</label>
-<input type="text"  id="name" class="form-control " name="mark[maths]" placeholder="?" >
-</div>
-
-<div class="form-group">
-<label for"branch">English</label>
-<input type="text"  id="branch" class="form-control " name="mark[english]" placeholder="?" >
-</div>
-
-<div class="form-group">
-<label for"dmc">Physics</label>
-<input type="text"  id="dmc" class="form-control " name="mark[physics]" placeholder="?" >
-</div>
-<button type="submit" class="btn submit">Submit</button>
 </form>
-</div>
     </body>
 </html>

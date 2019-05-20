@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 
 var studentSchema = new mongoose.Schema({
   rollno:Number,
- name: String,
+ name:  {
+  type:String,
+  trim: true,
+  required: true
+},
  rgno: {
    type:String,
    required: true
@@ -12,8 +16,12 @@ var studentSchema = new mongoose.Schema({
  image: String,
  email: String,
  marks:[{
+  type:mongoose.Schema.Types.ObjectId,
+  ref:"Mark"
+}],
+ results:[{
    type:mongoose.Schema.Types.ObjectId,
-   ref:"Mark"
+   ref:"Result"
  }],
  courses:[{
   type:mongoose.Schema.Types.ObjectId,
