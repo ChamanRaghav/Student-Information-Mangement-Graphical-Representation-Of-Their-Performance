@@ -4,6 +4,7 @@ const mongoose = require('mongoose'),
 methodOverride = require("method-override");
 const path = require('path');
 const passport = require('passport');
+const multer = require('multer');
 const flash = require('connect-flash');
 const session = require('express-session');
 
@@ -32,7 +33,7 @@ app.set('view engine', 'ejs');
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
-
+app.use(multer().single('image'));
 // Express session
 app.use(
   session({
@@ -54,6 +55,7 @@ app.use(function(req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+  res.locals.login = req.isAuthenticated();
   next();
 });
 
@@ -62,7 +64,9 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/courses', require('./routes/courses.js'));
 app.use('/student',require('./routes/students'));
+app.use('/note', require('./routes/notification.js'));
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

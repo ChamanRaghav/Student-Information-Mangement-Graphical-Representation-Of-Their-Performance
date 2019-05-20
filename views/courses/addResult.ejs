@@ -1,4 +1,3 @@
-<% include ../partials/nav %>
 
 <h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
  </h1>
@@ -20,7 +19,7 @@
 
 <% if(subject.length > 0) {%>
 <form action="/courses/sem/addResultForm/<%= course._id %>/<%= sem._id %>" method="get">
-  <table class="table table1">
+  <table class="table">
     <tbody>
       <tr>
           <div class="form-group"></div>
@@ -51,5 +50,3 @@
   
   
   
-
-<% include ../partials/footer %>

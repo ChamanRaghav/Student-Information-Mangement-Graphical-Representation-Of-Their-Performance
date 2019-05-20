@@ -2,9 +2,14 @@
       margin: 2% 0% 4% 2%;
 }
 
-.table1{
-  width: 60%;
-  align-items: center;
+#mytable{
+  width: 100%;
+  margin: 20%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 h1, h3{
@@ -14,11 +19,11 @@ h1, h3{
 body{
   margin: 0;
   padding: 0;
+  background-color: rgb(125, 125, 180);
 }
-ul {
+ul .action {
 list-style-type: none;
 }
 li{
-  
   display: inline;
 }

@@ -1,26 +1,32 @@
 var mongoose = require('mongoose');
 var resultSchema = new mongoose.Schema({
 
-       course : {
-           type: String,
-       },
        sem : {
            type: String,
        },
        sessional: {
            type: String,
        },
-       student : {
-           type: String
-       },
+       sub1:[{
+           name: String,
+           mark: String
+       }],
+
+
+
+
        subjects:[{
+           type:mongoose.Schema.Types.ObjectId,
+           ref:"Subject"
+        }],
+        marks:[{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Mark"
+        }],
+        student : {
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Subject"
-      }],
-       marks:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Mark"
-      }]
+        ref:"Student"
+        }
 });
 
 module.exports = mongoose.model('Result',resultSchema);

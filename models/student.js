@@ -13,8 +13,8 @@ var studentSchema = new mongoose.Schema({
  },
  dname: String,
  sname: String,
- image: String,
  email: String,
+ image: String,
  marks:[{
   type:mongoose.Schema.Types.ObjectId,
   ref:"Mark"

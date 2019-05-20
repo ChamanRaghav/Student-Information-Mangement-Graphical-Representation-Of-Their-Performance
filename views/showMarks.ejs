@@ -1,0 +1,47 @@
+    <h1><%= student.name %> Performance</h1>
+
+
+    <% if(!student.marks){  %>
+        <h2> No Record Found</h2>
+    <%  } else {   %>
+
+        <table id="myTable">
+            <% student.marks.forEach(function(sub){  %>
+                <thead>
+                <tr>
+                    <td>Semester</td>
+                    <td>Sessional</td>
+                    <td><%= sub.sub1.subName  %></td>
+                    <td><%= sub.sub2.subName  %></td>
+                    <td><%= sub.sub3.subName  %></td>
+                    <td><%= sub.sub4.subName  %></td>
+                    <td><%= sub.sub5.subName  %></td>
+                 </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= sub.sem  %></td>
+                        <td><%= sub.sessional  %></td>
+                        <td><%= sub.sub1.marks %></td>
+                        <td><%= sub.sub2.marks %></td>
+                        <td><%= sub.sub3.marks %></td>
+                        <td><%= sub.sub4.marks %></td>
+                        <td><%= sub.sub5.marks %></td>
+                    </tr>
+                </tbody>
+            <%  }) %>
+        </table>
+
+
+
+
+
+
+
+
+
+
+        <% }  %>
+        <a href="/student/<%= student._id %>/addMarks">
+            <button class="btn btn-primary">Add Marks</button>
+        </a>

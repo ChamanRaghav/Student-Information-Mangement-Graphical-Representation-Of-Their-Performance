@@ -1,15 +1,8 @@
 
-<h1>Welcome to  <b> <%= sem.semester %> Semester</b> Of <b> <%= course.name %> </b> Department 
- </h1>
-<h3> Under Guidance of <b> Mr. <%= course.hod %> </b></h3>
-<!-- 
-<a href="/courses/sem/addSub/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Subject</button> </a> -->
-
 
 <a href="/users/add">
     <button class="btn btn-primary" type="button" href="/users/add">Add Student </button></a>
     
-    <a href="/courses/sem/subList/<%= course._id %>/<%= sem._id %>" class="btn btn-primary">Go to Subject List</a>
 
 
     <button onclick="goBack()" class="btn btn-primary">Go Back</button>
@@ -26,11 +19,15 @@ function goForward() {
   window.history.forward();
 }
 </script>
+<% if(students.length > 0) {%>
+
+<h1>Welcome to  <b> <%= students[0].sname %> Semester</b> Of <b> <%= students[0].dname %> </b> Department 
+ </h1>
+
+
 <% var count = 0 %>
 
-<a href="/courses/sem/addResult/<%= course._id %>/<%= sem._id %>"> <button class="btn btn-primary">Add Result</button> </a>
 
-<% if(students.length > 0) {%>
   <table class="table table-sm table-striped">
     <thead class="table-active thead-dark">
       <tr>
@@ -57,15 +54,9 @@ function goForward() {
   
   <td>
     <ul class="action">
-      <li>
-        <a href="/users/students/<%= course._id %>/<%= sem._id %>/<%=students._id %>" class="btn btn-outline-info"><i class="material-icons">
-            add
-            </i>Result </a >
-        </li>
         <li>
-        <a href="/users/index/<%=students._id %>" class="btn btn-outline-info"><i class="material-icons">
-            create
-            </i>Edit</a>
+        <a href="/users/index/<%=students._id %>" class="btn btn-outline-info">   <img src="/materialicon/edit.png" alt="">
+Edit</a>
         </li>
       </ul>
       
@@ -76,7 +67,10 @@ function goForward() {
 </table>
 <button class="btn btn-info btn-block">Total Student = <%= count %></button>
 <% } else { %>
-  <h1>No Student Found!!</h1>
+
+  <h1>Sorry... No Record Found!!</h1>
 <%}%>
 
 
+
+<% include ../partials/footer %>

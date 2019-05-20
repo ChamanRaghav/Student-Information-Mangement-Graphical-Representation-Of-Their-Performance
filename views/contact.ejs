@@ -1,46 +1,34 @@
 
-      <% include ./partials/nav.ejs %>
   <h1>Contact Us!!</h1>
   <p>Reach at Campus.</p>
-  <form id="contact-form" action="/users/contact" method="POST">
-    <table>
+  <form  action="/users/contact" method="POST">
+    <table class="table">
       <tbody>
         <tr>
-          <td>
+          <div class="form-group">
+          <td><label for="who">Who do you want to contact? </label></td>
+          <td><input type="text" class="form-control"  name="who" value="<%=  qs.name %>"/></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+           <td><label for="department">Which Department:</label></td>
+           <td><input type="text"  class="form-control" name="department" value="<%=  qs.dept %>"/></td>
+          </div>
+        </tr>
+        <tr>
             <div class="form-group">
-            <label for="who">Who do you want to contact? </label>
-          </td>
-          <td>
-            <input type="text" class="form-control"  name="who" value="<%=  qs.name %>"/><br>
-          </td>
+            <td><label for="email">Your Email:</label></td>
+            <td><input type="email" class="form-control" name="email" value=""/></td>
+            </div>
         </tr>
         <tr>
-          <td>
-            <label for="department">Which Department:</label>
-          </td>
-          <td>
-            <input type="text"  class="form-control" name="department" value="<%=  qs.dept %>"/><br>
-          </td>
-        </tr>
-        <tr>
-            <td>
-              <label for="email">Your Email:</label>  
-              </td>
-            <td>
-                <input type="email" class="form-control" name="email" value=""/><br>
+            <div class="form-group">
+            <td><label for="comment">Comment:</label><td>
+            <textarea class="form-control" rows="5" id="comment"></textarea><br>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </td>
           </tr>
-          <tr>
-              <td>
-             
-      <label for="comment">Comment:</label>
-              <td>
-            <textarea class="form-control" rows="5" id="comment"></textarea>  <br>  
-            <button type="submit" class="btn btn-primary btn-large">Submit</button>
-              </td>
-            </tr>
       </tbody>
     </table>
   </form>
-  </body>
-</html>

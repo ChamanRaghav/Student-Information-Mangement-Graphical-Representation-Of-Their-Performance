@@ -1,20 +1,21 @@
-<% include ./partials/nav.ejs %>
 
 <form class="myform" action="/users/index/<%=student._id%>?_method=PUT" method="POST">
   <h1>Edit The Details Of <b> <%= student.name %> </b></h1>
   <table class="table1 table">
     <tbody>
-      <tr> <div class="form-group">
-        <td>   <label for="rollno">Roll No:</label> </td>
-        <td> <input type="number" name='rollno' value="<%=student.rollno %>" required/> </td>
-      </tr></div>
+      <tr> 
+        <div class="form-group">
+          <td>   <label for="rollno">Roll No:</label> </td>
+          <td> <input type="number" name='rollno' class="form-control" value="<%=student.rollno %>" required/> </td>
+        </div>
+      </tr>
       <tr><div class="form-group">
         <td>  <label for="name">Name:</label></td>
-        <td><input type="text" name="name" value="<%= student.name %>" required/> </td>
+        <td><input type="text" name="name" class="form-control" value="<%= student.name %>" required/> </td>
       </tr></div>
       <tr><div class="form-group">
           <td>    <label for="rgno">Registration No:</label> </td>
-          <td><input type="number" name="rgno"  value="<%= student.rgno %>"  required/> </td>
+          <td><input type="number" name="rgno" class="form-control" value="<%= student.rgno %>"  required/> </td>
       </tr></div>
       <tr>
           <td> <label for="department">Which Department:</label></td>
@@ -44,7 +45,7 @@
       </tr>
     <tr><div class="form-group">
       <td><label for="email">Your Email:</label>  </td>
-      <td> <input type="email" name="email"  value="<%= student.email %>" required> </td>
+      <td> <input type="email" name="email"  class="form-control" value="<%= student.email %>" required> </td>
     </tr> </div>
   </tbody>
 </table>   

@@ -1,74 +1,77 @@
 
 
-    <% include ./partials/nav.ejs %>
-      <table>
-          <form action="/users/addMarks" method="POST">
+      <table class="table">
+          <form action="/student/<%= student._id %>/addMarks" method="POST">
             <h1>Add Marks of  <%= student.name %></h1>
         <tbody>
+          <tr><div class="form-group">
+              <td> <label for="name">Semester & Sessional</label></td>
+              <td><select name="semester" id="MySem" class="custom-select">
+                          <option value="<%= student.sname %>"><%= student.sname %></option>
+                          <option value="1">1st</option>
+                          <option value="2">2nd</option>
+                          <option value="3">3rd</option>
+                          <option value="4">4th</option>
+                          <option value="5">5th</option>
+                          <option value="6">6th</option>
+                          <option value="7">7th</option>
+                          <option value="8">8th</option>
+                        </select></td>
+              <td><select name="sessional" class="custom-select">
+                                  <option value="" selected disabled hidden>Select Sessional</option>
+                                  <option value="1">1st</option>
+                                  <option value="2">2nd</option>
+                                  <option value="3">3rd</option>
+                                </select></td>
+          </tr></div>
           <tr>
             <td>
                 <div class="form-group">
-                    <label >FCPC</label>
+                    <label >Subject 1</label>
             </td>
-            <td>
-                <input type="text" class="form-control " name="fcpc" placeholder="FCPC Marks" >
-              </div>
-            </td>
+            <td><input type="text" class="form-control " name="subName1" placeholder="Subject Name" ></td> 
+            <td><input type="text" class="form-control " name="marks1" placeholder="Marks" ></td>
+          </div>
           </tr>
           <tr>
             <td>
-              <div class="form-group">
-              <label>Basics of Electronics</label>
+                <div class="form-group">
+                    <label >Subject 2</label>
+            </td>
+            <td><input type="text" class="form-control " name="subName2" placeholder="Subject Name" ></td>
+            <td><input type="text" class="form-control " name="marks2" placeholder="Marks" ></td>
+            </div>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label >Subject 3</label>
+            </td>
+            <td><input type="text" class="form-control " name="subName3" placeholder="Subject Name" ></td> 
+            <td>  <input type="text" class="form-control " name="marks3" placeholder="Marks" ></td>
+          </div>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label >Subject 4</label>
+            </td>
+            <td><input type="text" class="form-control " name="subName4" placeholder="Subject Name" ></td> 
+            <td> <input type="text" class="form-control " name="marks4" placeholder="Marks" ></td>
+          </div>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-group">
+                    <label >Subject 5</label>
+            </td>
+            <td><input type="text" class="form-control " name="subName5" placeholder="Subject Name" ></td>  
+            <td><input type="text" class="form-control " name="marks5" placeholder="Marks" ><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </td>
+          </tr>
 
-            </td>
-            <td>
-                <input type="text"  class="form-control " name="be" placeholder="BE Marks" >
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label>Basics of Mechanical Engineering</label>
-            </td>
-            <td>
-                <input type="text"  id="rollno" class="form-control " name="bme" placeholder="BME Marks" >
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label>Mathematics</label>
-            </td>
-            <td>
-                <input type="text" class="form-control " name="maths" placeholder="Mathematics Marks" >
-              </div>        
-            </td>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label >English</label>
-            </td>
-            <td>
-                <input type="text" class="form-control " name="english" placeholder="English Marks" >
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group">
-                  <label >Physics</label>
-          </td>
-          <td>
-                  <input type="text"  class="form-control " name="physics" placeholder="Physics Marks" >
-                </div> 
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </td>
-          <br><br>
-       
-        </tr>
         </tbody>
       </table>
 

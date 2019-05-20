@@ -1,0 +1,60 @@
+
+    <% include ./partials/nav.ejs %>
+
+    
+<div class="container=fluid ">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-outline-primary" type="button" href="/users/add">
+          <img src="/materialicon/add.png" alt="">
+          Student
+        </button>
+    </div>
+          
+<div class="table-responsive-sm">
+        <table class="table table-striped table-responsive table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Roll No.</th>
+              <th scope="col">Name</th>
+              <th scope="col">Registration No.</th>
+              <th scope="col">Department Name</th>
+              <th scope="col">Semester</th>
+              <th scope="col">Action</th>
+              
+  </tr>
+</thead>
+<% students.forEach(function(students){ %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= students.rollno %></th>
+      <td ><%= students.name %></td>
+      <td><%= students.rgno %></td>
+    <td><%= students.dname %></td>
+    <td><%= students.sname %></td>
+  <td>
+    <ul class="action">
+    <li>
+      <a href="/users/students/<%=students._id %>" class="btn btn-outline-success"><img src="/materialicon/morev.svg" alt="">Details </a >
+      </li>
+      <li>
+        <a href="/users/index/<%=students._id %>" class="btn btn-outline-primary"><img src="/materialicon/edit.png" alt="">Edit</a >
+        </li>
+        <li>
+    <form action="/users/index/<%= students._id%>?_method=DELETE" class="form-inline my-2 my-lg-0" method="POST">
+      <button class="btn btn-outline-danger my-2 my-sm-0"><img src="/materialicon/delete.png" alt="">Delete
+    </button>
+  </form>
+  </li>
+</ul>
+
+</td>
+</tr>
+<%})%>
+</tbody>
+</table>
+
+</div>
+</div>
+
+</body>
+</html>

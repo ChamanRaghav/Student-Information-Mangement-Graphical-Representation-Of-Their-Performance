@@ -1,0 +1,37 @@
+
+    <% include ./partials/nav.ejs %>
+
+    <h1>Add a New Notification!!</h1>
+
+    
+
+    <button onclick="goBack()" class="btn btn-outline-primary"><img src="/materialicon/undo.png" alt=""> Go Back</button>
+      <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+
+  <form action="/note/addNotification" enctype="multipart/form-data" method="POST">
+    <table class="table table1">
+      <tbody>
+        <tr> 
+          <div class="form-group">
+          <td>   <label for="title">*Title:</label> </td>
+          <td> <input type="text" class="form-control" placeholder="Notification Title" name='title' required/> </td>
+        </div>
+      </tr>
+        <tr>
+          <div class="form-group">
+          <td>  <label for="name">Notification Related Document:</label></td>
+          <td><input type="file" class="form-control" placeholder="Docs" name="doc" />
+            <br>
+            <input type="submit"  class="btn btn-lg btn-outline-primary" role="button" />
+         </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>   
+</form>
+  </body>
+</html>

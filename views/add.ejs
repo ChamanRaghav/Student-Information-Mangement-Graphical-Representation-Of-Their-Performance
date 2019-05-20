@@ -1,5 +1,4 @@
 
-    <% include ./partials/nav.ejs %>
 
     <h1>Add a New Student!!</h1>
 
@@ -12,8 +11,8 @@
         }
         </script>
 
-  <form action="/users/add" method="POST">
-    <table class="table table1">
+  <form action="/users/add" enctype="multipart/form-data" method="POST">
+    <table class="table">
       <tbody>
         <tr> 
           <div class="form-group">
@@ -30,7 +29,7 @@
         <tr>
           <div class="form-group">
             <td>    <label for="rgno">*Registration No:</label> </td>
-            <td><input type="number" class="form-control" placeholder="Regustration No." name="rgno"  required/> </td>
+            <td><input type="number" class="form-control" placeholder="Registration No." name="rgno"  required/> </td>
         </div>
       </tr>
         <tr>
@@ -65,9 +64,16 @@
         <div class="form-group">
         <td><label for="email">*Your Email:</label>  </td>
         <td> <input type="email" class="form-control" placeholder="Email" name="email" required>
+      </div>
+    </tr>
+    <tr>
+        <div class="form-group">
+      <td><label for="image">Image</label></td>
+      <td><input type="file" class="form-control" name="image" id="image">
         <br>
-        <input type="submit"  class="submit btn btn-lg btn-primary" role="button" /> </td>
-       </div>
+        <input type="submit"  class="btn btn-lg btn-outline-primary" role="button" />
+      </td>
+    </div>
       </tr>
     </tbody>
   </table>   

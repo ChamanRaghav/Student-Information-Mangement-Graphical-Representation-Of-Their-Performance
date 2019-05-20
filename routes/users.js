@@ -6,20 +6,21 @@ const passport = require('passport');
 const User = require('../models/User');
 var Mark = require('../models/mark');
 var Student = require('../models/student.js');
+const Notification = require('../models/notification');
 var Course = require('../models/course');
 var Subject = require('../models/subject');
 var Sem = require('../models/sem');
 
-const { forwardAuthenticated } = require('../config/auth');
+// const { forwardAuthenticated } = require('../config/auth');
 
 // Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
+router.get('/login', notLoggedIn,  (req, res) => res.render('login'));
 
 // Register Page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+router.get('/register', notLoggedIn, (req, res) => res.render('register'));
 
 // Register
-router.post('/register', (req, res) => {
+router.post('/register', notLoggedIn, (req, res) => {
   const { name, email, password, password2 } = req.body;
   let errors = [];
 
@@ -92,7 +93,7 @@ router.post('/login', (req, res, next) => {
 });
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get('/logout',isLoggedIn, (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
   res.redirect('/users/login');
@@ -130,6 +131,7 @@ router.get("/index", function(req, res){
         res.render('add', { user: req.user });
       }
       else{
+        console.log(students.image)
         req.flash(
           'success_msg',
           'Successfully added A new Student'
@@ -266,7 +268,7 @@ router.put('/index/:id', function(req, res){
     } else{
       req.flash(
       'success_msg',
-      `${students.name} is Successfully Updated.`
+      `Details of ${students.name} is Successfully Updated.`
       );
       res.redirect('/users/index');
     }
@@ -451,5 +453,18 @@ router.get('/about', function(req, res){
 res.render('about');
 });
 
-
 module.exports = router;
+
+function isLoggedIn(req, res,next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/dashboard');
+}
+
+function notLoggedIn(req, res,next){
+  if(!req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/dashboard');
+}
