@@ -5,37 +5,49 @@ var markSchema = new mongoose.Schema({
                 type: String,
             },
         sessional: {
-                type: String,
+                type: Number,
             },
         sub1: {
                 subName: String,
-                marks: String,
-                default: 0
+                marks: {
+                        type: Number,
+                        default: 0
+                    },
         },
         sub2: {
                 subName: String,
-                marks: String,
-                default: 0
+                marks: {
+                        type: Number,
+                        default: 0
+                    },
         },
         sub3:{
                 subName: String,
-                marks: String,
-                default: 0
+                marks: {
+                        type: Number,
+                        default: 0
+                    },
         },
         sub4:{
                 subName: String,
-                marks: String,
-                default: 0
+                marks:{
+                        type: Number,
+                        default: 0
+                    },
         },
         sub5: {
                 subName: String,
-                marks: String,
-                default: 0
+                marks:{
+                        type: Number,
+                        default: 0
+                    },
         },
         sub6: {
                 subName: String,
-                marks: String,
-                default: 0
+                marks: {
+                        type: Number,
+                        default: 0
+                    },
         },
         mark:{
             type: Number,

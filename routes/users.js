@@ -125,9 +125,27 @@ router.get("/index", function(req, res){
     res.render('add',{ user: req.user });
   });
   router.post('/add', function(req, res){
-    Student.create(req.body, function(err, students){
+    Student.create({
+      rollno: req.body.rollno,
+      name: req.body.name,
+      rgno: req.body.rgno,
+      dname: req.body.dname,
+      sname: req.body.sname,
+      email: req.body.email,
+      fname: req.body.fname,
+      mname: req.body.mname,
+      dob: req.body.dob,
+      gender: req.body.gender,
+      address: req.body.address
+    }, function(err, students){
       if(err){
         console.log("Error in Saving Student");
+        req.flash(
+          'error_msg',
+          `Error in Adding New Student`
+          );
+      console.log(req.body);
+      console.error(err);
         res.render('add', { user: req.user });
       }
       else{

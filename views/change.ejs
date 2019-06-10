@@ -43,6 +43,40 @@
               <option value="8">8th</option>
             </select></td>
       </tr>
+      <tr>
+          <div class="form-group">
+          <td>  <label for="fname">Father's Name:</label></td>
+          <td><input type="text" class="form-control" placeholder="Father's Name" name="fname" value="<%= student.fname %>" required/> </td>
+        </div>
+      </tr>
+      <tr>
+          <div class="form-group">
+          <td>  <label for="mname">Mother's Name:</label></td>
+          <td><input type="text" class="form-control" placeholder="Mother's Name" name="mname" value="<%= student.mname %>" required/> </td>
+        </div>
+      </tr>
+      <tr>
+          <div class="form-group">
+          <td>  <label for="dob">Date Of Birth:</label></td>
+          <td><input type="date" class="form-control" placeholder="DD" name="dob" value="<%= student.dob %>" required/> </td>
+        </div>
+      </tr>
+      <tr>
+          <div class="form-group">
+          <td>  <label for="gender">Gender:</label></td>
+          <td><select name="gender" value="<%= student.gender %>" class="custom-select">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select></td>      
+          </div>
+      </tr>
+      <tr>
+          <div class="form-group">
+          <td>  <label for="address">Address:</label></td>
+          <td><input type="text" class="form-control" placeholder="Address" name="address" value="<%= student.address %>" required/> </td>
+        </div>
+      </tr>
+      <tr>
     <tr><div class="form-group">
       <td><label for="email">Your Email:</label>  </td>
       <td> <input type="email" name="email"  class="form-control" value="<%= student.email %>" required> </td>

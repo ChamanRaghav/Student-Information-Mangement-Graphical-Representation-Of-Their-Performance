@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <title>Student Performance</title>
-</head>
-<body>
-  <div class="container">
-    <canvas id="myChart"></canvas>
+
+
+<div class="d-flex justify-content-end">
+  <form name="myForm" method="GET">
+    <select id="line1" value="<%= graphType %>" name="graphType">
+      <option value="bar">Bar</option>
+      <option value="horizontalBar">Horizontal Bar</option>
+      <option value="pie">Pie</option>
+      <option value="radar">Radar</option>
+      <option value="polarArea">Polar Area</option>
+      <option value="line">Line</option>
+      <option value="doughnut">DoughNut</option>
+    </select>
+  <button type="submit" onclick=" check(); return false" >submit</button>
+  </form>
+</div>
+
+    <canvas id="myChart" width="80%" height="40%"></canvas>
   </div>
 
-  <script>
+    <script type="text/javascript">
+  
+
     let myChart = document.getElementById('myChart').getContext('2d');
 
     // Global Options
@@ -22,45 +29,62 @@
     Chart.defaults.global.defaultFontColor = '#777';
 
     let massPopChart = new Chart(myChart, {
-      type:'polarArea', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      type:
+       '<%= graphType %>'  ||
+       'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['FCPC', 'BE', 'BME', 'Math', 'English', 'Physics'],
+        labels:[
+          '<%= marks.sub1.subName %>',
+          '<%= marks.sub2.subName %>',
+          '<%= marks.sub3.subName %>',
+          '<%= marks.sub4.subName %>',
+          '<%= marks.sub5.subName %>',
+          '<%= marks.sub6.subName %>'
+        ],
+        
         datasets:[{
-          label:'Sohit',
+          label:'<%= student.name %>',
           data:[
-            <%= data.fcpc %>,
-            <%= data.be %>,
-            <%= data.bme %>,
-            <%= data.maths %>,
-            <%= data.english %>
-            <%= data.physics %>,
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, )',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
-          ],
-          borderWidth:1,
-
+          '<%= marks.sub1.marks %>',
+          '<%= marks.sub2.marks %>',
+          '<%= marks.sub3.marks %>',
+          '<%= marks.sub4.marks %>',
+          '<%= marks.sub5.marks %>',
+          '<%= marks.sub6.marks %>'
+        ],
+        //backgroundColor:'green',
+        backgroundColor:[
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 159, 64, 0.6)',
+          'rgba(255, 99, 132, 0.6)'
+        ],
+          borderWidth:0,
           borderColor:'#777',
-          hoverBorderWidth:3,
+          hoverBorderWidth:1,
           hoverBorderColor:'#000'
-        }]
+        },
+        {
+  label: 'Average Marks Of Class',
+  data: [57, 53, 55, 39, 13, 76],
+  backgroundColor: 'rgba(0, 99, 132, 0.6)',
+  borderWidth: 0,
+}
+      ]
       },
       options:{
         title:{
           display:true,
-          text:'Performance Of Sohit',
+          text:'Performance Of <%= student.name %>',
+          fontColor:'#000',
           fontSize:25
         },
         legend:{
           display:true,
-          position:'right',
+          position:'down',
           labels:{
             fontColor:'#000'
           }
@@ -75,9 +99,16 @@
         },
         tooltips:{
           enabled:true
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            }]
         }
       }
     });
-  </script>
-</body>
-</html>
+    </script>
+    

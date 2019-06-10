@@ -11,16 +11,13 @@ const session = require('express-session');
 const app = express();
 app.use(methodOverride("_method"));
 
-
-
 // Passport Config
 require('./config/passport')(passport);
-
 
 // Connect to MongoDB
 mongoose
   .connect(
-    "mongodb://localhost:27017/studentDetail",
+    'mongodb+srv://ChamanRaghav:Raghav%4061@projecttasks-uw9iy.mongodb.net/test?retryWrites=true',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
@@ -61,11 +58,10 @@ app.use(function(req, res, next) {
 
 // Routes
 app.use('/', require('./routes/index.js'));
+app.use('/subject',require('./routes/subjects'));
 app.use('/users', require('./routes/users.js'));
-app.use('/courses', require('./routes/courses.js'));
 app.use('/student',require('./routes/students'));
 app.use('/note', require('./routes/notification.js'));
-
 
 const PORT = process.env.PORT || 5001;
 

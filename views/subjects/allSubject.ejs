@@ -1,0 +1,58 @@
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+        
+
+<a href="/subject/addSub"> <button class="btn btn-primary">Add Subject</button> </a>
+
+
+<% if(subject) { %>
+
+    <table id="myTable" class="table">
+              <tr>
+                <th scope="col">Department</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Name</th>
+                <th scope="col">Subject Code</th>
+                <th scope="col">Teacher</th>
+                <th scope="col">Type</th> 
+                <% if(login){ %>
+                  <th scope="col">Action</th> 
+                  <%  }  %>           
+    </tr>
+    </thead>
+    <tbody>
+            <% subject.forEach(function(sub){ %>
+      <tr>
+        <td ><%= sub.branch %></td>
+        <td ><%= sub.semester %></td>
+        <th scope="row"><%= sub.name %></th>
+        <td ><%= sub.subCode %></td>
+        <td>Mr. <%= sub.teacher %></td>
+      <td><%= sub.form %></td>
+      <% if(login){ %>
+      <td>
+          <ul class="action">
+                <li>
+                    <a href="/subject/<%=sub._id %>" class="btn btn-warn btn-sm">Edit</a>
+                </li>
+                <li>
+                      <form action="/subject/<%= sub._id%>?_method=DELETE" method="POST">
+                        <button onclick="return confirm('Delete <%= subject.name %>\'s Subject Record Permanently?');" class="btn btn-danger btn-sm d-flex justify-content-end">Remove</button>
+                    </form>
+                </li>
+      </ul>
+      </td>  <%  }  %> 
+    </tr>
+    <%})%>
+    </tbody>
+    </table>
+    
+    <% } else { %>
+      <h1>No Subject Found!!</h1>
+    <%}%>
+    

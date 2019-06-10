@@ -1,24 +1,38 @@
-    <h1><%= student.name %> Performance</h1>
+<h1>Performance Of <strong> <%= student.name %> </strong> </h1>
 
+<button onclick="goBack()" class="btn btn-outline-warning"> <img src="/materialicon/undo.png" alt=""> Go Back</button>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
+<a href="/student/<%= student._id %>/addMarks">
+    <button class="btn btn-outline-warning fa-pull-right "> <img src="/materialicon/add.png" alt=""> Marks</button>
+</a>
 
     <% if(!student.marks){  %>
         <h2> No Record Found</h2>
     <%  } else {   %>
 
-        <table id="myTable">
-            <% student.marks.forEach(function(sub){  %>
-                <thead>
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>
+                <% student.marks.forEach(function(sub){  %>
                 <tr>
                     <td>Semester</td>
                     <td>Sessional</td>
-                    <td><%= sub.sub1.subName  %></td>
-                    <td><%= sub.sub2.subName  %></td>
-                    <td><%= sub.sub3.subName  %></td>
-                    <td><%= sub.sub4.subName  %></td>
-                    <td><%= sub.sub5.subName  %></td>
+                       
+                            <td><%= sub.sub1.subName %></td>
+                            <td><%= sub.sub2.subName %></td>
+                            <td><%= sub.sub3.subName %></td>
+                            <td><%= sub.sub4.subName %></td>
+                            <td><%= sub.sub5.subName %></td>
+                            <td><%= sub.sub6.subName %></td>
+                    <td>Total Marks</td>
+                    <td>Action</td>
                  </tr>
                 </thead>
                 <tbody>
+                    
                     <tr>
                         <td><%= sub.sem  %></td>
                         <td><%= sub.sessional  %></td>
@@ -27,21 +41,43 @@
                         <td><%= sub.sub3.marks %></td>
                         <td><%= sub.sub4.marks %></td>
                         <td><%= sub.sub5.marks %></td>
+                        <td><%= sub.sub6.marks %></td>
+                        <% totalMarks = sub.sub1.marks+sub.sub2.marks
+                        +sub.sub3.marks+sub.sub4.marks
+                        +sub.sub5.marks+sub.sub6.marks %>
+                        <td><%= totalMarks  %></td>
+                        <td>
+                        <ul style="width:20%;">
+                        <li>
+                                <form action="/student/<%= student._id %>/<%= sub._id %>/perform" method="GET">
+                                        <select id="line1" name="graphType">
+                                            <option value="line" selected>Line</option>
+                                            <option value="bar">Bar</option>
+                                            <option value="horizontalBar">Horizontal Bar</option>
+                                            <option value="pie">Pie</option>
+                                            <option value="doughnut">DoughNut</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-sm btn-primary">Graph</button>
+                                    </form>
+                        </li>
+                        <li>
+                            <form action="/student/<%= student._id %>/<%= sub._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Delete <%= student.name %>\'s this Record Permanently?');">Delete</button>
+                            </form>
+                        </li>
+                        </ul>
+                        </td>
                     </tr>
+                    <%  }) %>
                 </tbody>
-            <%  }) %>
         </table>
 
-
-
-
-
-
-
-
-
-
         <% }  %>
-        <a href="/student/<%= student._id %>/addMarks">
-            <button class="btn btn-primary">Add Marks</button>
-        </a>
+
+
+
+
+
+
+
+

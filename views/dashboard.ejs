@@ -1,12 +1,9 @@
-
-<h1 class="mt-2">Dashboard</h1>
-<p class="lead mb-3">Welcome <b> <%= user.name %></b></p>
 <% if(user){ %>
+  <p class="lead mb-3">Welcome <b> <%= user.name %></b></p>
 <div class="d-flex justify-content-end">
    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Manage Notifications</button>
   </div>
   <% } %>
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -28,10 +25,9 @@
                             <tr>
                               <th scope="col">Sr. No.</th>
                               <th scope="col">Title</th>
-                  </tr>
-                </thead>
+                            </tr>
+                          </thead>
               <% var count = 1 %>
-
                 <% not.forEach(function(note){ %>
                   <tbody>
                     <tr>
@@ -54,14 +50,12 @@
                 <% })  %>
                 </tbody>
                 </table>
-                
                 </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
-    </div>
-    
+    </div>                       
   </div>
 </div>
 

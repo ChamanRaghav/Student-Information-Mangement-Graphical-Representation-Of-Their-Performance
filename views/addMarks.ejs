@@ -1,8 +1,16 @@
 
+<h1>Add Marks of  <%= student.name %></h1>
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+        
 
+<a href="/subject/addSub"> <button class="btn btn-primary">Add Subject</button> </a>
       <table class="table">
           <form action="/student/<%= student._id %>/addMarks" method="POST">
-            <h1>Add Marks of  <%= student.name %></h1>
         <tbody>
           <tr><div class="form-group">
               <td> <label for="name">Semester & Sessional</label></td>
@@ -17,60 +25,34 @@
                           <option value="7">7th</option>
                           <option value="8">8th</option>
                         </select></td>
-              <td><select name="sessional" class="custom-select">
+              <td><select name="sessional" class="custom-select" required>
                                   <option value="" selected disabled hidden>Select Sessional</option>
                                   <option value="1">1st</option>
                                   <option value="2">2nd</option>
                                   <option value="3">3rd</option>
+                                  <option value="4">Semester Exam</option>
                                 </select></td>
           </tr></div>
+          <% var i = 1 %>
+          <% subject.forEach(function(sub){   %>
           <tr>
             <td>
                 <div class="form-group">
-                    <label >Subject 1</label>
-            </td>
-            <td><input type="text" class="form-control " name="subName1" placeholder="Subject Name" ></td> 
-            <td><input type="text" class="form-control " name="marks1" placeholder="Marks" ></td>
-          </div>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label >Subject 2</label>
-            </td>
-            <td><input type="text" class="form-control " name="subName2" placeholder="Subject Name" ></td>
-            <td><input type="text" class="form-control " name="marks2" placeholder="Marks" ></td>
-            </div>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label >Subject 3</label>
-            </td>
-            <td><input type="text" class="form-control " name="subName3" placeholder="Subject Name" ></td> 
-            <td>  <input type="text" class="form-control " name="marks3" placeholder="Marks" ></td>
-          </div>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label >Subject 4</label>
-            </td>
-            <td><input type="text" class="form-control " name="subName4" placeholder="Subject Name" ></td> 
-            <td> <input type="text" class="form-control " name="marks4" placeholder="Marks" ></td>
-          </div>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group">
-                    <label >Subject 5</label>
-            </td>
-            <td><input type="text" class="form-control " name="subName5" placeholder="Subject Name" ></td>  
-            <td><input type="text" class="form-control " name="marks5" placeholder="Marks" ><br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </td>
-          </tr>
+                    <label >Subject <%= i %></label>
+                  </td>
+                  <td><input type="text" class="form-control " name="subName<%= i %>" value="<%= sub.name %>" disabled ></td> 
+                  <td><input type="text" class="form-control " name="marks<%= i %>" placeholder="Marks" min="0" max="100" required ></td>
+                </div>
+              </tr>
+              <% i+=1 %>
+              <% }) %>
+         <tr>
+           <td></td>
+           <td></td>
+           <td>
+             <button type="submit" class="btn btn-primary">Submit</button>
+           </td>
+         </tr>
 
         </tbody>
       </table>

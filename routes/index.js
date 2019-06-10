@@ -7,7 +7,7 @@ const Notification = require('../models/notification');
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard
-router.get('/dashboard', ensureAuthenticated, (req, res) =>{
+router.get('/dashboard',(req, res) =>{
 Notification.find({}, (err, notes)=> {
   if(err){
     console.log(err);

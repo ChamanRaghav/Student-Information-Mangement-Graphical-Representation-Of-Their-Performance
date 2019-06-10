@@ -1,14 +1,14 @@
 {
-  "name": "node_passport_login",
+  "name": "mecw-project",
   "version": "2.0.0",
-  "description": "Node.js authentication with Passport",
+  "description": "Student Management System along with thier performance",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Chaman Raghav",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

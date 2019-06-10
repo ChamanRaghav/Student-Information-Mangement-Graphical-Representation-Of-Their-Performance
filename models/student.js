@@ -14,7 +14,14 @@ var studentSchema = new mongoose.Schema({
  dname: String,
  sname: String,
  email: String,
- image: String,
+ fname: String,
+ mname: String,
+ dob: Date,
+ gender:{
+   type: String,
+   enum: ['Male', 'Female']
+ },
+ address: String,
  marks:[{
   type:mongoose.Schema.Types.ObjectId,
   ref:"Mark"
@@ -22,12 +29,7 @@ var studentSchema = new mongoose.Schema({
  results:[{
    type:mongoose.Schema.Types.ObjectId,
    ref:"Result"
- }],
- courses:[{
-  type:mongoose.Schema.Types.ObjectId,
-  ref:"Course"
-}]
+ }]
 });
-
 
 module.exports = mongoose.model('Student', studentSchema);

@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>MECW</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="/style/bootstrap.min.css" >
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/style/styles.css">
-</head>
-<body>
 
-
-  <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top ">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top" style="max-width: 100%">
     <a class="navbar-brand" href="/dashboard">Dashboard</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,6 +13,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/contact">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/subject/allSubjects">Subjects</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Branch
@@ -36,10 +23,10 @@
           
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Computer Science & Engineering
             </a><div class="dropdown dropleft">
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <a class="dropdown-item" href="/student/Computer Science & Engineering/1">1st</a>
                 <a class="dropdown-item" href="/student/Computer Science & Engineering/2">2nd</a>
                 <a class="dropdown-item" href="/student/Computer Science & Engineering/3">3rd</a>
@@ -52,24 +39,24 @@
                 <a class="dropdown-item" href="#">PassOut</a>
               </div>
             </div>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Electronics & Communication Engineering
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
               <div class="dropdown dropright">
-                <a class="dropdown-item" href="#">1st</a>
-                <a class="dropdown-item" href="#">2nd</a>
-                <a class="dropdown-item" href="#">3rd</a>
-                <a class="dropdown-item" href="#">4th</a>
-                <a class="dropdown-item" href="#">5th</a>
-                <a class="dropdown-item" href="#">6th</a>
-                <a class="dropdown-item" href="#">7th</a>
-                <a class="dropdown-item" href="#">8th</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/1">1st</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/2">2nd</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/3">3rd</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/4">4th</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/5">5th</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/6">6th</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/7">7th</a>
+                <a class="dropdown-item" href="/student/Electronics & Communication Engineering/8">8th</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">PassOut</a>
               </div>
             </div>
-            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Electrical & Electrionics Engineering</a>
               <div class="dropdown dropright">
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -86,9 +73,7 @@
                 </div>
               </div>
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mechanical Engineering<i class="material-icons">
-                  train
-              </i></a>
+                Mechanical Engineering</a>
               <div class="dropdown dropleft">
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">1st</a>
@@ -103,37 +88,32 @@
                     <a class="dropdown-item" href="#">PassOut</a>
                   </div>
                 </div>
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Civil Engineering<i class="material-icons">
-                    train
-                  </i></a>
-                  <div class="dropdown dropright">
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">1st</a>
-                          <a class="dropdown-item" href="#">2nd</a>
-                          <a class="dropdown-item" href="#">3rd</a>
-                          <a class="dropdown-item" href="#">4th</a>
-                          <a class="dropdown-item" href="#">5th</a>
-                          <a class="dropdown-item" href="#">6th</a>
-                          <a class="dropdown-item" href="#">7th</a>
-                          <a class="dropdown-item" href="#">8th</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">PassOut</a>
-                        </div>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Civil Engineering</a>
+                <div class="dropdown dropright">
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        <a class="dropdown-item" href="/student/Civil Engineering/1">1st</a>
+                        <a class="dropdown-item" href="#">2nd</a>
+                        <a class="dropdown-item" href="#">3rd</a>
+                        <a class="dropdown-item" href="#">4th</a>
+                        <a class="dropdown-item" href="#">5th</a>
+                        <a class="dropdown-item" href="#">6th</a>
+                        <a class="dropdown-item" href="#">7th</a>
+                        <a class="dropdown-item" href="/student/Civil Engineering/8">8th</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">PassOut</a>
                       </div>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Others</a> -->
+                    </div>
                     </div>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" data-target="#demo">BranchWise</a>
-                  </li>
                 </ul>
-      <form  action="/users/student" method="POST"  class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="rgno" placeholder="Enter Registration No." aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search <img src="/materialicon/search.svg" alt=""></button>
-      </form>
       <ul class="navbar-nav">
+          <li>
+              <form  action="/users/student" method="POST"  class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" name="rgno" placeholder="Enter Registration No." aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search <img src="/materialicon/search.svg" alt=""></button>
+              </form>
+            </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user"></i> User Management
@@ -153,103 +133,3 @@
   </nav>
 
   
-
-  <div id="demo" style="background-color:rgb(255, 255, 255);" class="collapse">
-  <div class="container nav-item dropdown">
-    <div class="row">
-      <div class="col-sm">
-    
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Computer Science & Engineering
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de078a855d5b644c060d">1st</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de208a855d5b644c060f">2nd</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de338a855d5b644c0610">3rd</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de478a855d5b644c0611">4th</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de5c8a855d5b644c0612">5th</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de748a855d5b644c0613">6th</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de8b8a855d5b644c0614">7th</a>
-                <a class="dropdown-item" href="/courses/sem/5cc5ddfe8a855d5b644c060c/5cc5de9c8a855d5b644c0615">8th</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">PassOut</a>
-              </div>
-            
-        
-      </div>
-      <div class="col-sm">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Electronics & Communication Engineering
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">1st</a>
-            <a class="dropdown-item" href="#">2nd</a>
-            <a class="dropdown-item" href="#">3rd</a>
-            <a class="dropdown-item" href="#">4th</a>
-            <a class="dropdown-item" href="#">5th</a>
-            <a class="dropdown-item" href="#">6th</a>
-            <a class="dropdown-item" href="#">7th</a>
-            <a class="dropdown-item" href="#">8th</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">PassOut</a>
-          </div>
-      </div>
-      <div class="col-sm">
-        
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Electrical & Electrionics Engineering
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">1st</a>
-          <a class="dropdown-item" href="#">2nd</a>
-          <a class="dropdown-item" href="#">3rd</a>
-          <a class="dropdown-item" href="#">4th</a>
-          <a class="dropdown-item" href="#">5th</a>
-          <a class="dropdown-item" href="#">6th</a>
-          <a class="dropdown-item" href="#">7th</a>
-          <a class="dropdown-item" href="#">8th</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">PassOut</a>
-        </div>
-      </div>
-      <div class="col-sm">
-        
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mechanical Engineering
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">1st</a>
-          <a class="dropdown-item" href="#">2nd</a>
-          <a class="dropdown-item" href="#">3rd</a>
-          <a class="dropdown-item" href="#">4th</a>
-          <a class="dropdown-item" href="#">5th</a>
-          <a class="dropdown-item" href="#">6th</a>
-          <a class="dropdown-item" href="#">7th</a>
-          <a class="dropdown-item" href="#">8th</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">PassOut</a>
-        </div>
-       </div>
-       <div class="col-sm">
-  
-         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Civil Engineering
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">1st</a>
-          <a class="dropdown-item" href="#">2nd</a>
-          <a class="dropdown-item" href="#">3rd</a>
-          <a class="dropdown-item" href="#">4th</a>
-          <a class="dropdown-item" href="#">5th</a>
-          <a class="dropdown-item" href="#">6th</a>
-          <a class="dropdown-item" href="#">7th</a>
-          <a class="dropdown-item" href="#">8th</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">PassOut</a>
-        </div>
-       </div>
-       </div>
-    </div>
-  </div>
-
-

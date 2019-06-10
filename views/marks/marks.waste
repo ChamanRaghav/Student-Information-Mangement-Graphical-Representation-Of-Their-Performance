@@ -30,3 +30,19 @@
         <tr><div class="form-group">
                 <td></td>
                 <td></td>
+
+
+
+                '<%= name1 %>',
+            '<%= name2 %>',
+            '<%= name3 %>',
+            '<%= name4 %>',
+            '<%= name5 %>',
+            '<%= name6 %>'
+
+                      name1 = <%=   sub.sub1.subName   %>
+          name2 = <%=   sub.sub2.subName   %>
+          name3 = <%=   sub.sub3.subName  %>
+          name4 = <%=   sub.sub4.subName  %>
+          name5 = <%=   sub.sub5.subName  %>
+          name6 = <%=   sub.sub6.subName   %>

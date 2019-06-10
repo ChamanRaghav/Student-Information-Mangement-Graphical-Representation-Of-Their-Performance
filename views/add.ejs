@@ -11,7 +11,7 @@
         }
         </script>
 
-  <form action="/users/add" enctype="multipart/form-data" method="POST">
+  <form action="/users/add" method="POST">
     <table class="table">
       <tbody>
         <tr> 
@@ -68,8 +68,35 @@
     </tr>
     <tr>
         <div class="form-group">
-      <td><label for="image">Image</label></td>
-      <td><input type="file" class="form-control" name="image" id="image">
+        <td>  <label for="fname">Father's Name:</label></td>
+        <td><input type="text" class="form-control" placeholder="Father's Name" name="fname" required/> </td>
+      </div>
+    </tr>
+    <tr>
+        <div class="form-group">
+        <td>  <label for="mname">Mother's Name:</label></td>
+        <td><input type="text" class="form-control" placeholder="Mother's Name" name="mname" required/> </td>
+      </div>
+    </tr>
+    <tr>
+        <div class="form-group">
+        <td>  <label for="dob">Date Of Birth:</label></td>
+        <td><input type="date" class="form-control" placeholder="DD" name="dob" required/> </td>
+      </div>
+    </tr>
+    <tr>
+        <div class="form-group">
+        <td>  <label for="gender">Gender:</label></td>
+        <td><select name="gender" class="custom-select">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select></td>      
+        </div>
+    </tr>
+    <tr>
+        <div class="form-group">
+        <td>  <label for="address">Address:</label></td>
+        <td><input type="text" class="form-control" placeholder="Address" name="address" required/>
         <br>
         <input type="submit"  class="btn btn-lg btn-outline-primary" role="button" />
       </td>

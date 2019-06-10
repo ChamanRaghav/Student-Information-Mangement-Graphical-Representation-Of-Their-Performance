@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-start">
+    <h1><%= student.name %></h1>
+</div>
+
+<button onclick="goBack()" class="btn btn-primary">Go Back</button>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+<a href="/student/<%=student._id %>"><button class="btn btn-primary mr-5 fa-pull-right">See Performance</button></a>
+<a href="/users/index/<%=student._id %>"><button class="btn btn-primary ml-2 fa-pull-right">Edit Details</button></a> <br>
+
+<h2><%= student.dname %> <%= student.sname %></h2>
+<p><b>Registration No:</b> <%= student.rgno %></p>
+<p><b>Email Id:</b> <%= student.email %></p>
+<p><b>Phone No:</b> <%= student.phone %></p>
+<p><b>Father's Name:</b> <%= student.fname %></p>
+<p><b>Mother's Name:</b> <%= student.mname %></p>
+<p><b>Date Of Birth:</b> <%= student.dob %></p>
+<p><b>Gender:</b> <%= student.gender %></p>
+<p><b>Address:</b> <%= student.address %></p>
